@@ -1,0 +1,75 @@
+import styled, { css } from "styled-components/native"
+
+export const Title = styled.Text`
+  ${({ theme }) => css`
+    font-size: ${theme.metrics.px(32)}px;
+    color: ${theme.colors.heading};
+    text-align: center;
+    font-family: ${theme.fonts.heading};
+    line-height: ${theme.metrics.px(40)}px;
+  `}
+`
+
+export const TitleRegular = styled.Text`
+  ${({ theme }) => css`
+    font-size: ${theme.metrics.px(32)}px;
+    color: ${theme.colors.heading};
+    font-family: ${theme.fonts.text};
+  `}
+`
+
+export const Subtitle = styled.Text`
+  ${({ theme }) => css`
+    font-size: ${theme.metrics.px(24)}px;
+    color: ${theme.colors.heading};
+    text-align: center;
+    margin-bottom: ${theme.metrics.px(32)}px;
+    font-family: ${theme.fonts.heading};
+  `}
+`
+
+export const Description = styled.Text`
+  ${({ theme }) => css`
+    font-size: ${theme.metrics.px(18)}px;
+    color: ${theme.colors.heading};
+    padding-left: ${theme.metrics.px(20)}px;
+    text-align: center;
+    padding-right: ${theme.metrics.px(20)}px;
+    font-family: ${theme.fonts.text};
+  `}
+`
+
+export const Text = styled.Text`
+  ${({ theme }) => css`
+    font-size: ${theme.metrics.px(18)}px;
+    color: ${theme.colors.heading};
+    padding-left: ${theme.metrics.px(20)}px;
+    padding-right: ${theme.metrics.px(20)}px;
+    font-family: ${theme.fonts.text};
+  `}
+`
+
+export const TextBold = styled.Text`
+  ${({ theme }) => css`
+    font-size: ${theme.metrics.px(18)}px;
+    color: ${theme.colors.heading};
+    padding-left: ${theme.metrics.px(20)}px;
+    padding-right: ${theme.metrics.px(20)}px;
+    font-family: ${theme.fonts.heading};
+  `}
+`
+
+export const ButtonText = styled.Text`
+  ${({ theme }) => css`
+    font-size: ${theme.metrics.px(18)}px;
+    color: ${theme.colors.white};
+    font-family: ${theme.fonts.text};
+  `}
+`
+
+export const Emoji = styled.Text`
+  ${({ theme }) => css`
+    font-size: ${theme.metrics.px(48)}px;
+    margin-bottom: ${theme.metrics.px(8)}px;
+    `}
+`
