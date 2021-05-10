@@ -7,6 +7,7 @@ export const HeaderContainer = styled.View`
     align-items: center;
     justify-content: space-between;
     padding-left: 20;
+    margin-bottom: 35;
   `}
 `
 

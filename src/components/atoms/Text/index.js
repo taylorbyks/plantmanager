@@ -66,6 +66,16 @@ export const ButtonText = styled.Text`
     font-family: ${theme.fonts.text};
   `}
 `
+export const ItemButtonText = styled.Text`
+  ${({ active, theme }) => css`
+    font-size: ${theme.metrics.px(16)}px;
+    color: ${active ? theme.colors.green_dark : theme.colors.heading};
+    text-align: center;
+    line-height: ${theme.metrics.px(40)}px;
+    justify-content: center;
+    font-family: ${active ? theme.fonts.heading : theme.fonts.text};
+  `}
+`
 
 export const Emoji = styled.Text`
   ${({ theme }) => css`
