@@ -7,14 +7,15 @@ export const HeaderContainer = styled.View`
     align-items: center;
     justify-content: space-between;
     padding-left: ${theme.metrics.px(20)}px;
-    margin-bottom: ${theme.metrics.px(35)}px;
+    padding-right: ${theme.metrics.px(20)}px;
+    margin-bottom: ${theme.metrics.px(30)}px;
   `}
 `
 
 export const UserImage = styled.Image`
   ${({ theme }) => css`
-    width: ${theme.metrics.px(70)}px;
-    height: ${theme.metrics.px(70)}px;
-    border-radius: ${theme.metrics.px(35)}px;
+    width: ${theme.metrics.px(60)}px;
+    height: ${theme.metrics.px(60)}px;
+    border-radius: ${theme.metrics.px(30)}px;
   `}
 `
