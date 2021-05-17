@@ -6,6 +6,6 @@ export const ItemButtonContainer = styled.TouchableOpacity`
     border-radius: ${theme.metrics.px(12)}px;
     width: ${theme.metrics.px(76)}px;
     height: ${theme.metrics.px(40)}px;
-    margin-right: 10;
+    margin-right: ${theme.metrics.px(5)}px;
   `}
 `

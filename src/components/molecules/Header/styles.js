@@ -6,8 +6,8 @@ export const HeaderContainer = styled.View`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding-left: 20;
-    margin-bottom: 35;
+    padding-left: ${theme.metrics.px(20)}px;
+    margin-bottom: ${theme.metrics.px(35)}px;
   `}
 `
 

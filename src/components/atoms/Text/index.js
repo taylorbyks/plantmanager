@@ -77,6 +77,15 @@ export const ItemButtonText = styled.Text`
   `}
 `
 
+export const PlantCardText = styled.Text`
+  ${({ theme }) => css`
+    font-size: ${theme.metrics.px(16)}px;
+    color: ${theme.colors.heading};
+    line-height: ${theme.metrics.px(40)}px;
+    font-family: ${theme.fonts.heading};
+  `}
+`
+
 export const Emoji = styled.Text`
   ${({ theme }) => css`
     font-size: ${theme.metrics.px(48)}px;
