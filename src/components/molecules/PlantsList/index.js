@@ -1,9 +1,10 @@
 import React from "react";
-import { FlatList } from "react-native";
+import { ActivityIndicator, FlatList } from "react-native";
+import { colors } from "../../../styles/colors";
 import { PlantCard } from "../../atoms/PlantCard"
 import { PlantsListContainer } from "./styles";
 
-export const PlantsList = ({ data }) => {
+export const PlantsList = ({ data, onEndReached, loading }) => {
   return (
     <PlantsListContainer>
       <FlatList
@@ -13,6 +14,13 @@ export const PlantsList = ({ data }) => {
         )}
         showsVerticalScrollIndicator={false}
         numColumns={2}
+        onEndReachedThreshold={0.1}
+        onEndReached={onEndReached}
+        ListFooterComponent={
+          loading
+            ? <ActivityIndicator color={colors.green} />
+            : <></>
+        }
       />
     </PlantsListContainer>
   )
