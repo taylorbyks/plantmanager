@@ -18,4 +18,6 @@ export const colors = {
   blue_light: "#EBF6FF",
 
   red: "#E83F5B",
+  
+  transparent: "rgba(0, 0, 0, 0)",
 };
