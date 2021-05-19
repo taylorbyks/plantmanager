@@ -5,5 +5,5 @@ import { fonts } from './fonts'
 export const theme = {
   colors,
   metrics,
-  fonts
+  fonts,
 }

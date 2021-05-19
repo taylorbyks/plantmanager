@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components/native"
+import styled, { css } from 'styled-components/native'
 
 export const EnvironmentsListContainer = styled.FlatList`
   ${({ theme }) => css`
@@ -6,5 +6,3 @@ export const EnvironmentsListContainer = styled.FlatList`
     margin-top: ${theme.metrics.px(20)}px;
   `}
 `
-
-

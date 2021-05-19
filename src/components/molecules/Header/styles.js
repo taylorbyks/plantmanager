@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components/native"
+import styled, { css } from 'styled-components/native'
 
 export const HeaderContainer = styled.View`
   ${({ theme }) => css`

@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components/native"
+import styled, { css } from 'styled-components/native'
 
 export const Title = styled.Text`
   ${({ theme }) => css`
@@ -90,5 +90,5 @@ export const Emoji = styled.Text`
   ${({ theme }) => css`
     font-size: ${theme.metrics.px(48)}px;
     margin-bottom: ${theme.metrics.px(8)}px;
-    `}
+  `}
 `

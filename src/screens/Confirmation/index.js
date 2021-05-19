@@ -1,8 +1,8 @@
-import React from "react"
+import React from 'react'
 import { useNavigation } from '@react-navigation/core'
 
-import { Description, Button, Subtitle, Emoji } from "../../components"
-import { ConfirmationContainer } from "./styles"
+import { Description, Button, Subtitle, Emoji } from '../../components'
+import { ConfirmationContainer } from './styles'
 
 export const Confirmation = () => {
   const navigation = useNavigation()

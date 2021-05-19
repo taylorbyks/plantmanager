@@ -1,24 +1,21 @@
-import React, { useState } from "react";
-import { View } from "react-native";
-import { ItemButton } from "../../atoms/ItemButton"
-import { EnvironmentsListContainer } from "./styles";
+import React, { useState } from 'react'
+import { View } from 'react-native'
+import { ItemButton } from '../../atoms/ItemButton'
+import { EnvironmentsListContainer } from './styles'
 
 export const EnvironmentsList = ({ data, setFilter, dataToFilter }) => {
-  const [ environmentsSelected, setEnvironmentsSelected ] = useState('all')
+  const [environmentsSelected, setEnvironmentsSelected] = useState('all')
 
   function handleEnvironmentSelected(environment) {
     setEnvironmentsSelected(environment)
-    
-    if(environment == 'all'){
-      return setFilter(dataToFilter)
-    } 
 
-    const filtered = dataToFilter.filter(plant => 
-      plant.environments.includes(environment)
-    )
+    if (environment == 'all') {
+      return setFilter(dataToFilter)
+    }
+
+    const filtered = dataToFilter.filter((plant) => plant.environments.includes(environment))
 
     setFilter(filtered)
-
   }
 
   return (
@@ -26,9 +23,9 @@ export const EnvironmentsList = ({ data, setFilter, dataToFilter }) => {
       <EnvironmentsListContainer
         data={data}
         renderItem={({ item }) => (
-          <ItemButton 
-            name={item.title} 
-            active={item.key === environmentsSelected} 
+          <ItemButton
+            name={item.title}
+            active={item.key === environmentsSelected}
             onPress={() => handleEnvironmentSelected(item.key)}
           />
         )}

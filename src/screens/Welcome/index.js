@@ -1,9 +1,9 @@
-import React from "react"
+import React from 'react'
 
-import watering from "../../assets/watering.png"
+import watering from '../../assets/watering.png'
 
-import { Title, Description, IconButton } from "../../components"
-import { WelcomeContainer, MainImage } from "./styles"
+import { Title, Description, IconButton } from '../../components'
+import { WelcomeContainer, MainImage } from './styles'
 
 import { useNavigation } from '@react-navigation/core'
 
@@ -25,15 +25,10 @@ export const Welcome = () => {
       <MainImage source={watering} />
 
       <Description>
-        Não esqueça mais de regar suas plantas. 
-        Nós cuidamos de lembrar você
-        sempre que precisar.
+        Não esqueça mais de regar suas plantas. Nós cuidamos de lembrar você sempre que precisar.
       </Description>
 
-      <IconButton 
-        iconName="chevron-forward-outline" 
-        onPress={handleNext} 
-      />
+      <IconButton iconName="chevron-forward-outline" onPress={handleNext} />
     </WelcomeContainer>
   )
 }

@@ -1,9 +1,10 @@
-import React, { useState } from "react"
+import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/core'
-// import AsyncStorage from '@react-native-async-storage/async-storage'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
-import { Subtitle, Button, Emoji, Input } from "../../components"
-import { LogonContainer } from "./styles"
+import { Subtitle, Button, Emoji, Input } from '../../components'
+import { LogonContainer } from './styles'
+import { Alert } from 'react-native'
 
 export const Logon = () => {
   const [isFocused, setIsFocused] = useState(false)
@@ -26,45 +27,38 @@ export const Logon = () => {
   }
 
   async function handleSubmit() {
-    // if(!name)
-    //   return Alert.alert('Me diz como chamar você! 😥')
-    // else 
+    if (!name) {
+      return Alert.alert('Me diz como posso chamar você! 😥')
+    }
+
+    try {
+      await AsyncStorage.setItem('@plantmanager:user', name)
+
       navigation.navigate('Confirmation')
-
-    // try {
-    //   await AsyncStorage.setItem('@plantmanager:user', name);
-
-    //   navigation.navigate('Confirmation', {
-    //     title: 'Prontinho',
-    //     subtitle: 'Agora vamos começar a cuidar das suas plantinhas com muito cuidado.',
-    //     buttonTitle: 'Começar',
-    //     icon: 'smile',
-    //     nextScreen: 'PlantSelect'
-    //   })
-    // } catch {
-    //   return Alert.alert('Não foi possível salvar o seu nome! 😥')
-    // }
+    } catch {
+      return Alert.alert('Não foi possível salvar o seu nome! 😥')
+    }
   }
 
   return (
     <LogonContainer behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-        <Emoji> {isFilled ? '😁' : '😀'} </Emoji>
-        
-        <Subtitle>
-          Como podemos{'\n'}
-          chamar você? 
-        </Subtitle>
-  
-        <Input 
-          placeholder="Digite seu Nome"
-          selected={isFocused || isFilled }
-          value={setName} 
-          onBlur={handleInputBlur}
-          onFocus={handleInputFocus} 
-          onChangeText={handleInputChange}
-        />
-  
-        <Button medium text="Confirmar" onPress={handleSubmit} />
+      <Emoji> {isFilled ? '😁' : '😀'} </Emoji>
+
+      <Subtitle>
+        Como podemos{'\n'}
+        chamar você?
+      </Subtitle>
+
+      <Input
+        placeholder="Digite seu Nome"
+        selected={isFocused || isFilled}
+        value={setName}
+        onBlur={handleInputBlur}
+        onFocus={handleInputFocus}
+        onChangeText={handleInputChange}
+      />
+
+      <Button medium text="Confirmar" onPress={handleSubmit} />
     </LogonContainer>
   )
 }
