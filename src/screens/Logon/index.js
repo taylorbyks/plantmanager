@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/core'
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import { saveUser } from '../../services/storage'
 
 import { Subtitle, Button, Emoji, Input } from '../../components'
 import { LogonContainer } from './styles'
@@ -32,7 +32,7 @@ export const Logon = () => {
     }
 
     try {
-      await AsyncStorage.setItem('@plantmanager:user', name)
+      await saveUser(name)
 
       navigation.navigate('Confirmation')
     } catch {
