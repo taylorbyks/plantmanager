@@ -1,6 +1,6 @@
 import React from 'react'
 import { SvgFromUri } from 'react-native-svg'
-import { PlantCardText } from '../Text'
+import { PlantCardText } from '../../atoms/Text'
 import { PlantCardContainer } from './styles'
 
 export const PlantCard = ({ data, medium, onPress }) => {
