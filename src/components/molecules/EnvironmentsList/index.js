@@ -22,6 +22,7 @@ export const EnvironmentsList = ({ data, setFilter, dataToFilter }) => {
     <View>
       <EnvironmentsListContainer
         data={data}
+        keyExractor={(item) => String(item.key)}
         renderItem={({ item }) => (
           <ItemButton
             name={item.title}
