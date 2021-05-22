@@ -28,6 +28,16 @@ export const Subtitle = styled.Text`
   `}
 `
 
+export const PlantTitle = styled.Text`
+  ${({ theme }) => css`
+    font-size: ${theme.metrics.px(24)}px;
+    color: ${theme.colors.heading};
+    margin-bottom: ${theme.metrics.px(5)}px;
+    margin-top: ${theme.metrics.px(5)}px;
+    font-family: ${theme.fonts.heading};
+  `}
+`
+
 export const Description = styled.Text`
   ${({ theme }) => css`
     font-size: ${theme.metrics.px(18)}px;
@@ -90,5 +100,33 @@ export const Emoji = styled.Text`
   ${({ theme }) => css`
     font-size: ${theme.metrics.px(48)}px;
     margin-bottom: ${theme.metrics.px(8)}px;
+  `}
+`
+
+export const TipText = styled.Text`
+  ${({ theme }) => css`
+    flex: 1;
+    font-size: ${theme.metrics.px(16)}px;
+    margin-left: ${theme.metrics.px(20)}px;
+    color: ${theme.colors.blue};
+    font-family: ${theme.fonts.text};
+  `}
+`
+
+export const AlertLabel = styled.Text`
+  ${({ theme }) => css`
+    font-size: ${theme.metrics.px(12)}px;
+    margin-bottom: ${theme.metrics.px(5)}px;
+    color: ${theme.colors.heading};
+    text-align: center;
+    font-family: ${theme.fonts.complement};
+  `}
+`
+
+export const TextDataTimePicker = styled.Text`
+  ${({ theme }) => css`
+    font-size: ${theme.metrics.px(24)}px;
+    color: ${theme.colors.heading};
+    font-family: ${theme.fonts.text};
   `}
 `
