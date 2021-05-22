@@ -1,3 +1,5 @@
 export * from './Header'
 export * from './EnvironmentsList'
 export * from './PlantsList'
+export * from './WateringTip'
+export * from './PlantCard'
