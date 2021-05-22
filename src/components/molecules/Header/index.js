@@ -10,17 +10,20 @@ import { View } from 'react-native'
 export const Header = () => {
   const [userName, setUserName] = useState()
 
+  async function loadStorageUserName() {
+    const user = await AsyncStorage.getItem('@plantmanager:user')
+    setUserName(user)
+  }
+
   useEffect(() => {
-    async function name(type) {
-      await AsyncStorage.getItem('@plantmanager:user')
-    }
-  }, [userName])
+    loadStorageUserName()
+  }, [])
 
   return (
     <HeaderContainer>
       <View>
         <TitleRegular>Olá,</TitleRegular>
-        <Title>Taylor</Title>
+        <Title>{userName}</Title>
       </View>
       <UserImage source={user} />
     </HeaderContainer>
