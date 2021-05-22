@@ -7,9 +7,19 @@ export const ButtonContainer = styled.TouchableOpacity`
     justify-content: center;
     background-color: ${theme.colors.green};
     border-radius: ${theme.metrics.px(16)}px;
-    width: ${medium ? '75%' : '95%'};
+    width: ${medium ? '75%' : '100%'};
     height: ${theme.metrics.px(56)}px;
     margin-bottom: ${theme.metrics.px(10)}px;
-    margin-top: ${theme.metrics.px(30)}px;
+    margin-top: ${ medium ? theme.metrics.px(30) : 0 }px;
   `}
 `
+
+export const ButtonDataTimePickerContainer = styled.TouchableOpacity`
+  ${({ theme }) => css`
+    align-items: center;
+    width: '100%';
+    padding-left: ${theme.metrics.px(40)}px;
+    padding-right: ${theme.metrics.px(40)}px;
+  `}
+`
+
