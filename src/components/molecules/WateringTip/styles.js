@@ -4,7 +4,7 @@ export const TipContainer = styled.View`
   ${({ theme }) => css`
     flex-direction: row;
     position: relative;
-    border-radius: 20;
+    border-radius: ${theme.metrics.px(20)}px;
     background-color: ${theme.colors.blue_light}
     justify-content: space-between;
     align-items: center;

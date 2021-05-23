@@ -7,7 +7,7 @@ import { Title, TitleRegular } from '../../atoms/Text'
 import user from '../../../assets/user.jpg'
 import { View } from 'react-native'
 
-export const Header = () => {
+export const Header = ({ text, textBold }) => {
   const [userName, setUserName] = useState()
 
   async function loadStorageUserName() {
@@ -22,8 +22,8 @@ export const Header = () => {
   return (
     <HeaderContainer>
       <View>
-        <TitleRegular>Olá,</TitleRegular>
-        <Title>{userName}</Title>
+        <TitleRegular>{text}</TitleRegular>
+        <Title>{textBold ? textBold : userName}</Title>
       </View>
       <UserImage source={user} />
     </HeaderContainer>
