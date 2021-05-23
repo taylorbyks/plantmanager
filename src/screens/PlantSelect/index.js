@@ -64,7 +64,7 @@ export const PlantSelect = () => {
 
   return (
     <PlantSelectContainer>
-      <Header />
+      <Header text="Olá,"/>
       <TextBold>Em qual ambiente</TextBold>
       <Text>você quer colocar sua planta?</Text>
       <EnvironmentsList data={environments} setFilter={setFilteredPlants} dataToFilter={plants} />

@@ -1,22 +1,32 @@
 import React from 'react'
-import { useNavigation } from '@react-navigation/core'
+import { useNavigation, useRoute } from '@react-navigation/core'
 
 import { Description, Button, Subtitle, Emoji } from '../../components'
 import { ConfirmationContainer } from './styles'
 
 export const Confirmation = () => {
   const navigation = useNavigation()
+  const routes = useRoute()
+
+  const {
+    title, subTitle, buttonTitle, icon, nextScreen
+  } = routes.params
 
   function handleNext() {
-    navigation.navigate('PlantSelect')
+    navigation.navigate(nextScreen)
+  }
+
+  const emojis = {
+    hug: '🤗',
+    smile: '😊'
   }
 
   return (
     <ConfirmationContainer>
-      <Emoji>😊</Emoji>
-      <Subtitle>Prontiho</Subtitle>
-      <Description> Agora vamos começar a cuidar das suas plantinhas com muito cuidado.</Description>
-      <Button medium text="Começar" onPress={handleNext} />
+      <Emoji>{emojis[icon]}</Emoji>
+      <Subtitle>{title}</Subtitle>
+      <Description>{subTitle}</Description>
+      <Button medium text={buttonTitle} onPress={handleNext} />
     </ConfirmationContainer>
   )
 }

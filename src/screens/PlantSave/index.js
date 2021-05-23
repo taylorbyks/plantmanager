@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Platform, Alert } from 'react-native';
 import { SvgFromUri } from 'react-native-svg'
 import DateTimePicker, { Event } from '@react-native-community/datetimepicker'
@@ -6,10 +6,11 @@ import { savePlant, loadPlant } from '../../services/storage'
 
 import { Button, Description, PlantTitle, AlertLabel, ButtonDataTimePicker, WateringTip } from '../../components'
 import { PlantSaveContainer, PlantController, PlantInfo } from './styles'
-import { useRoute } from '@react-navigation/core'
+import { useNavigation, useRoute } from '@react-navigation/core'
 import { format, isBefore } from 'date-fns';
 
 export const PlantSave = () => {
+  const navigation = useNavigation()
   const [selectedDateTime, setSelectedDateTime] = useState(new Date())
   const [showDatePicker, setShowDatePicker] = useState(Platform.OS == 'ios')
   const route = useRoute()
@@ -20,15 +21,17 @@ export const PlantSave = () => {
       setShowDatePicker(oldState => !oldState)
     }
 
-    if(dateTime && isBefore(dateTime, new Date())){
-      setSelectedDateTime(new Date())
-      return Alert.alert('Escolha uma hora no futuro ⏰')
-    }
+    // if(dateTime && isBefore(dateTime, new Date())){
+    //   setSelectedDateTime(new Date())
+    //   return Alert.alert('Escolha uma hora no futuro ⏰')
+    // }
 
   }
 
   async function handleSave() {
-    const data = loadPlant()
+    const data = await loadPlant()
+
+    console.log(data)
 
     try {
       await savePlant({
@@ -38,10 +41,10 @@ export const PlantSave = () => {
 
       navigation.navigate('Confirmation', {
         title: 'Tudo certo',
-        subtitle: 'Fique tranquilo que sempre vamos lembrar você de cuidar da sua planta com muito cuidado',
+        subTitle: 'Fique tranquilo que sempre vamos lembrar você de cuidar da sua planta com muito cuidado',
         buttonTitle: 'Muito Obrigado',
         icon: 'hug',
-        nextScreen: 'MyPlants',
+        nextScreen: 'PlantList',
       });
     } catch {
       Alert.alert('Não foi possível salvar. 😢');

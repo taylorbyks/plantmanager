@@ -34,7 +34,13 @@ export const Logon = () => {
     try {
       await saveUser(name)
 
-      navigation.navigate('Confirmation')
+      navigation.navigate('Confirmation', {
+        title: 'Prontinho',
+        subTitle: 'Agora vamos começar a cuidar das suas plantinhas com muito cuidado',
+        buttonTitle: 'Começar',
+        icon: 'smile',
+        nextScreen: 'PlantSelect',
+      })
     } catch {
       return Alert.alert('Não foi possível salvar o seu nome! 😥')
     }
