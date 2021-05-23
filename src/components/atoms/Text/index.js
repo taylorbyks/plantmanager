@@ -130,3 +130,21 @@ export const TextDataTimePicker = styled.Text`
     font-family: ${theme.fonts.text};
   `}
 `
+
+export const TimeText = styled.Text`
+  ${({ theme }) => css`
+    margin-top: ${theme.metrics.px(5)}px;
+    font-size: ${theme.metrics.px(16)}px;
+    color: ${theme.colors.body_dark};
+    font-family: ${theme.fonts.heading};
+  `}
+`
+
+export const TimeLabelText = styled.Text`
+  ${({ theme }) => css`
+    font-size: ${theme.metrics.px(16)}px;
+    color: ${theme.colors.body_light};
+    font-family: ${theme.fonts.text};
+  `}
+`
+
