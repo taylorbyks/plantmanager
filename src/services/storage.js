@@ -9,16 +9,18 @@ export async function savePlant(plant) {
 
     const newPlant = {
       [plant.id]: {
-        data: plant
-      }
+        data: plant,
+      },
     }
 
-    await AsyncStorage.setItem('@plantmanager:plants', 
+    await AsyncStorage.setItem(
+      '@plantmanager:plants',
       JSON.stringify({
-        ... newPlant,
-        ... oldPlants
-    }))
-  } catch(error) {
+        ...newPlant,
+        ...oldPlants,
+      })
+    )
+  } catch (error) {
     throw new Error(error)
   }
 }
@@ -28,27 +30,35 @@ export async function loadPlant() {
     const data = await AsyncStorage.getItem('@plantmanager:plants')
     const plants = data ? JSON.parse(data) : {}
 
-    const plantsSorted = Object
-      .keys(plants)
+    const plantsSorted = Object.keys(plants)
       .map((plant) => {
         return {
           ...plants[plant].data,
           hour: format(new Date(plants[plant].data.dateTimeNotification), 'HH:mm'),
         }
       })
-      .sort((a, b) => 
+      .sort((a, b) =>
         Math.floor(
-          new Date(a.dateTimeNotification).getTime() / 100 
-            - Math.floor(new Date(b.dateTimeNotification).getTime() / 1000),
+          new Date(a.dateTimeNotification).getTime() / 100 -
+            Math.floor(new Date(b.dateTimeNotification).getTime() / 1000)
         )
       )
 
-    return plantsSorted;
-  } catch(error) {
+    return plantsSorted
+  } catch (error) {
     throw new Error(error)
   }
 }
 
 export async function saveUser(name) {
   await AsyncStorage.setItem('@plantmanager:user', name)
+}
+
+export async function removePlant(plant) {
+  const data = await AsyncStorage.getItem('@plantmanager:plants')
+  const plants = data ? JSON.parse(data) : {}
+
+  delete plants[plant.id]
+
+  await AsyncStorage.setItem('@plantmanager:plants', JSON.stringify(plants))
 }
