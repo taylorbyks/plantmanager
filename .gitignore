@@ -14,3 +14,4 @@ web-build/
 .gitignore
 yarn.lock
 yarn-error.log
+yarn.lock
