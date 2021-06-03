@@ -44,7 +44,7 @@ export const PlantSave = () => {
         subTitle: 'Fique tranquilo que sempre vamos lembrar você de cuidar da sua planta com muito cuidado',
         buttonTitle: 'Muito Obrigado',
         icon: 'hug',
-        nextScreen: 'PlantList',
+        nextScreen: 'UserPlants',
       });
     } catch {
       Alert.alert('Não foi possível salvar. 😢');
