@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigation } from '@react-navigation/core'
 import { ActivityIndicator, FlatList } from 'react-native'
-import { colors } from '../../../styles/colors'
+import { theme } from '../../../styles/themes'
 import { PlantCardSmall } from '../PlantCard'
 import { PlantsListContainer } from './styles'
 
@@ -22,7 +22,7 @@ export const PlantsList = ({ data, onEndReached, loading }) => {
         numColumns={2}
         onEndReachedThreshold={0.1}
         onEndReached={onEndReached}
-        ListFooterComponent={loading ? <ActivityIndicator color={colors.green} /> : <></>}
+        ListFooterComponent={loading ? <ActivityIndicator color={theme.colors.green} /> : <></>}
       />
     </PlantsListContainer>
   )
