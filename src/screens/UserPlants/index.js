@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { loadPlant, removePlant } from '../../services/storage'
-
+import { ptBR } from 'date-fns/locale'
 import { PlantTitle, Header, WateringTip, UserPlantsList, LoadAnimation } from '../../components'
 import { UserPlantsContainer } from './styles'
 import { formatDistance } from 'date-fns'
@@ -21,7 +21,7 @@ export const UserPlants = () => {
         text: 'Sim',
         onPress: async () => {
           try {
-            await removePlant(plant)
+            await removePlant(plant.id)
 
             setUserPlants((oldData) => oldData.filter((item) => item.id !== plant.id))
           } catch (error) {
@@ -36,16 +36,20 @@ export const UserPlants = () => {
     async function loadStorageData() {
       const plantsStoraged = await loadPlant()
 
-      const nextTime = formatDistance(new Date(plantsStoraged[0].dateTimeNotification).getTime(), new Date().getTime())
+      const nextTime = formatDistance(
+        new Date(plantsStoraged[0].dateTimeNotification).getTime(),
+        new Date().getTime(),
+        { locale: ptBR }
+      )
 
-      setNextWatered(`Não edqueça de reagar a ${plantsStoraged[0].name} à ${nextTime} horas.`)
+      setNextWatered(`Não edqueça de reagar a ${plantsStoraged[0].name} à ${nextTime}.`)
 
       setUserPlants(plantsStoraged)
       setLoading(false)
     }
 
     loadStorageData()
-  }, userPlants)
+  }, [userPlants])
 
   if (loading) {
     return <LoadAnimation />
@@ -55,7 +59,7 @@ export const UserPlants = () => {
     <UserPlantsContainer>
       <Header text="Minhas" textBold="Plantas" />
       <WateringTip text={nextWatered} />
-      <PlantTitle>Próximas regadas</PlantTitle>
+      <PlantTitle> Próximas regadas</PlantTitle>
       <UserPlantsList data={userPlants} handleRemove={handleRemove} />
     </UserPlantsContainer>
   )

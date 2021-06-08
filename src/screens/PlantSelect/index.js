@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import { Header, Text, TextBold, EnvironmentsList, PlantsList, LoadAnimation } from '../../components'
-import api from '../../services/api'
+import localdata from '../../services/localdata'
 import { PlantSelectContainer } from './styles'
 
 export const PlantSelect = () => {
@@ -15,7 +15,9 @@ export const PlantSelect = () => {
   const [loadingPage, setLoadingPage] = useState(false)
 
   async function fetchEnvironment() {
-    const { data } = await api.get('plants_environments?_sort=title&_order=asc')
+    // const { data } = await api.get('plants_environments?_sort=title&_order=asc')
+    const data = localdata.plants_environments
+
     setEnvironments([
       {
         key: 'all',
@@ -26,7 +28,9 @@ export const PlantSelect = () => {
   }
 
   async function fetchPlants() {
-    const { data } = await api.get(`plants?_sort=name&_order=asc&_page=${page}&_limit=8`)
+    // const { data } = await api.get(`plants?_sort=name&_order=asc&_page=${page}&_limit=8`)
+    const data = localdata.plants
+
     if (!data) {
       return setLoading(true)
     }
@@ -56,7 +60,7 @@ export const PlantSelect = () => {
   useEffect(() => {
     fetchEnvironment()
     fetchPlants()
-  }, [])
+  }, [page])
 
   if (loading) {
     return <LoadAnimation />
