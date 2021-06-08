@@ -125,6 +125,8 @@ export const AlertLabel = styled.Text`
 
 export const TextDataTimePicker = styled.Text`
   ${({ theme }) => css`
+    text-align: center;
+    margin: ${theme.metrics.px(15)}px;
     font-size: ${theme.metrics.px(24)}px;
     color: ${theme.colors.heading};
     font-family: ${theme.fonts.text};
@@ -147,4 +149,3 @@ export const TimeLabelText = styled.Text`
     font-family: ${theme.fonts.text};
   `}
 `
-

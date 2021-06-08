@@ -17,9 +17,7 @@ export const ButtonContainer = styled.TouchableOpacity`
 export const ButtonDataTimePickerContainer = styled.TouchableOpacity`
   ${({ theme }) => css`
     align-items: center;
-    width: '100%';
     padding-left: ${theme.metrics.px(40)}px;
     padding-right: ${theme.metrics.px(40)}px;
   `}
 `
-
