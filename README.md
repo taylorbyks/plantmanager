@@ -1,7 +1,18 @@
 <h1 align="center">
+  Plant Manager
 </h1>
 
-> Application Plant Manager, to always remember to water your plants.
+<h3 align="center">
+  To remember to water all your types of plants.
+</h3>
+
+<p align="center">
+  <img src="https://media.giphy.com/media/IjWgLSXkzwnxJ2Eymi/giphy.gif" alt="animated" />
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://media.giphy.com/media/Bhf3i6iAtTrQXBR4wH/giphy.gif" alt="animated" />
+</p>
+
 
 ## 🔗 Table of contents
 - [Technologies](#technologies)
