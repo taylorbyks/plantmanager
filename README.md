@@ -41,7 +41,7 @@ git clone https://github.com/taylorbyks/plantmanager-mobile.git
 **Install dependencies**
 
 ```bash
-yarn install
+yarn
 ```
 
 ## 🚀 Getting start <a name="start"/>
